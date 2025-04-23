@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #34495E;
+    margin-bottom: 20px;
+}
+
+#game-field {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 10px;
+    width: 500px;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    transform: rotateY(180deg); /* Начальное положение: внутренняя сторона вверху */
+    border: 2px solid #000; /* Черная рамка вокруг карточки */
+}
+
+.card.flip {
+    transform: rotateY(0deg); /* Переворот карточки */
+}
+
+.face-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #D3D3D3; /* Серая внутренняя сторона */
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.face-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #EFEFEF; /* Видимая сторона с изображениями */
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.matched {
+    background-color: #EFEFEF;
+    color: gray;
+}
+
+#message {
+    font-size: 1.5rem;
+    color: green;
+    margin-top: 20px;
+}
